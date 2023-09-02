@@ -1,0 +1,72 @@
+import java.util.*;
+import java.io.*;
+
+
+class ng{
+
+
+public static void main(String args[])
+{
+
+ArrayList<Integer> ar=new ArrayList<>();
+Scanner sc=new Scanner(System.in);
+int guessno;
+int guess = 0;
+System.out.println("\nHow Many Time You Want To Play Guess:");
+int n=sc.nextInt();
+while(n!=0){
+System.out.println("\n1.play\n2.score\n3.exit\nEnter your choice:");
+int ch=sc.nextInt();
+switch (ch)
+{
+case 1: System.out.println("Enter the range:");
+int range=sc.nextInt();
+Random rnd=new Random();
+int rno = rnd.nextInt(range) + 1;
+System.out.println("\nYou have guess limit of 4\n");
+
+do{
+
+System.out.println("\nYou use "+guess+"\tOut of 4");
+		System.out.print("\nEnter your guess : ");
+		guessno = sc.nextInt();
+		guess++;
+
+
+if (guessno > rno)  
+		{
+		System.out.println("\n<<<<<Lower than this "+guessno+">>>>>>");
+		} 
+else if (guessno < rno) 
+		{
+		System.out.println("\n<<<<<Higher than this "+guessno+">>>>>>");
+		}
+if(guess==5)
+		{ System.out.println("\nYOU LOSE \nYOU EXCEED THE MAXIMUM LIMIT........\nRESTARTING GAME.............");
+		System.exit(0);
+		}
+}while (rno!= guessno);
+System.out.println("You Win In " + guess + " Guess try!");
+ar.add(guess);
+break;
+
+case 2:
+System.out.println("Score ");
+Collections.sort(ar);
+for (Integer a: ar) {
+		System.out.println("Your Best Guess In  " + a+ " Tries");
+		}
+		break;
+case 3:
+		  System.out.println("\n"+"GOOD BYE");
+		 System.exit(1);
+		break;
+		default: System.out.println("\n"+"INVALID INPUT");
+
+}
+}
+
+
+}
+
+}
