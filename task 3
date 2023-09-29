@@ -1,0 +1,62 @@
+//Bank InterFace
+
+
+import java.util.*;
+import java.io.*;
+public class atm {
+	int ab;
+atm(int ab){
+	this.ab=ab;
+	
+}
+public int withdraw(int amount) {
+	ab=ab-amount;
+	return ab;
+	
+}
+public int deposite(int amount) {
+	ab=ab+amount;
+
+	return ab;
+	
+}
+public int cheackBalance() {
+	
+	return ab;
+	
+}
+}
+
+class bank{
+ 
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int ch,amt;
+		atm obj = new atm(10000);
+		do {
+		System.out.println("1.Deposite");
+		System.out.println("\n2.Withdraw");
+		System.out.println("\n3.CheckBalance");
+		System.out.println("\nEnter your choice:");
+		ch=sc.nextInt();
+		switch(ch) {
+		case 1:System.out.println("\nEnter amount to deposite:");
+		 amt=sc.nextInt();
+		obj.deposite(amt);
+		System.out.println("Balance:"+obj.cheackBalance());
+		break;
+		case 2: System.out.println("\nEnter amount to withdraw:");
+		 amt=sc.nextInt();
+		obj.withdraw(amt);
+		System.out.println("Balance:"+obj.cheackBalance());
+		break;
+		case 3:System.out.println(obj.cheackBalance());
+			
+		}
+	
+		}while(ch!=4);
+		
+		
+	}
+	
+}
